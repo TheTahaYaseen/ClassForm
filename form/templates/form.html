@@ -1,0 +1,84 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="container mt-5 px-3 py-4 rounded-3 w-75 mx-auto">
+	<p class="mb-3 fs-1">Registration For Elevate Writing Course</p>
+	<p class="mb-2 fs-5">{{error}}</p>
+
+	{% if not_submitted %}
+
+	<form method="POST">
+		{% csrf_token %}
+
+		<p class="mt-2 mb-0 fs-5">Your Name?</p>
+		<input
+			class="w-100 rounded-3 px-2 py-1 fs-5"
+			type="text"
+			name="name"
+			value="{{name}}"
+			placeholder="Enter desired name" />
+
+		<p class="mt-2 mb-0 fs-5">Your Email?</p>
+		<input
+			class="w-100 rounded-3 px-2 py-1 fs-5"
+			type="email"
+			name="email"
+			value="{{email}}"
+			placeholder="Enter desired email" />
+
+		<p class="mt-2 mb-0 fs-5">Your Contact Number?</p>
+		<input
+			class="w-100 rounded-3 px-2 py-1 fs-5"
+			type="tel"
+			name="contact"
+			value="{{contact}}"
+			placeholder="Enter desired contact" />
+
+		<p class="mt-2 mb-0 fs-5">Your City?</p>
+		<input
+			class="w-100 rounded-3 px-2 py-1 fs-5"
+			type="tel"
+			name="city"
+			value="{{city}}"
+			placeholder="Enter desired city"
+			list="cities_list" />
+
+		<datalist id="cities_list">
+			{% for city in cities %}
+			<option value="{{city}}">{{city}}</option>
+			{% endfor %}
+		</datalist>
+
+		<p class="mt-2 mb-0 fs-5">Your Age?</p>
+		<input
+			class="w-100 rounded-3 px-2 py-1 fs-5"
+			type="number"
+			name="age"
+			value="{{age}}"
+			placeholder="Enter desired age" />
+
+		<p class="mt-2 mb-0 fs-5">Your Qualifications?</p>
+		<input
+			class="w-100 rounded-3 px-2 py-1 fs-5"
+			type="tel"
+			name="qualifications"
+			value="{{qualifications}}"
+			placeholder="Enter desired qualifications" />
+
+		<p class="mt-2 mb-0 fs-5">Describe Yourself?</p>
+		<input
+			class="w-100 rounded-3 px-2 py-1 fs-5"
+			type="tel"
+			name="description"
+			value="{{description}}"
+			placeholder="Enter desired description" />
+
+		<br />
+		<button type="submit" class="mt-4 px-4 py-1 rounded-pill fs-5">
+			Register
+		</button>
+	</form>
+
+	{% endif %}
+</div>
+
+{% endblock content %}

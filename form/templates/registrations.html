@@ -1,0 +1,15 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="col-lg-6 col-md-9 col-11 mx-auto">
+	{% for student in students %}
+
+	<div class="container mt-4 py-2 rounded-3">
+		<p class="m-0 fs-5">{{student.name}}</p>
+		<p class="m-0 fs-5">{{student.email}}</p>
+		<a href="{% url 'registration' student.id %}">
+			<button class="px-3 rounded-pill fs-6">More</button>
+		</a>
+	</div>
+
+	{% endblock content %}
+</div>
